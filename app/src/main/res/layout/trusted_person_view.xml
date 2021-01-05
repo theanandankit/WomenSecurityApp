@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="2dp"
+        android:layout_margin="3dp">
+
+        <ImageView
+            android:id="@+id/trusted_person_call"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="15dp"
+            android:background="@drawable/ic_phone_black_24dp">
+
+        </ImageView>
+
+        <TextView
+            android:id="@+id/trusted_person_view_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:text="Medhavi"
+            android:textSize="20sp">
+
+        </TextView>
+
+
+        <TextView
+            android:id="@+id/trusted_person_view_relation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/trusted_person_view_name"
+            android:layout_margin="3dp"
+            android:text="(father)"
+            android:textSize="15sp">
+
+        </TextView>
+
+
+        <TextView
+            android:id="@+id/trusted_person_view_contact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/trusted_person_view_relation"
+            android:layout_margin="3dp"
+            android:text="87870XXXXXX"
+            android:textSize="15dp">
+
+        </TextView>
+
+
+        <TextView
+            android:id="@+id/trusted_person_view_adress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/trusted_person_view_contact"
+            android:layout_margin="3dp"
+            android:text="ABV IIITM GWALIOR"
+            android:textSize="12sp">
+
+        </TextView>
+
+    </RelativeLayout>
+
+</LinearLayout>
