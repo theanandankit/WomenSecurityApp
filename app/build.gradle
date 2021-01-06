@@ -76,4 +76,9 @@ dependencies {
     implementation 'com.github.ibrahimsn98:CirclesLoadingView:1.0'
     implementation 'com.github.droidbond:LoadingButton:0.1.5'
 
+    implementation 'com.squareup.retrofit2:retrofit:2.6.1' // retofit
+    implementation 'com.squareup.retrofit2:converter-scalars:2.5.0' //scalar converter
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.1' //gson converter
+    implementation "com.squareup.okhttp3:logging-interceptor:4.8.0" // logging intercepter
+
 }
