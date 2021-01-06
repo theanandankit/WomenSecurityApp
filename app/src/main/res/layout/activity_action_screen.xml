@@ -30,7 +30,7 @@
             android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".MapsActivity" />
+            tools:context="com.project.womensecurityapp.MapActivity" />
 
         <com.github.clans.fab.FloatingActionMenu
             android:id="@+id/menu"

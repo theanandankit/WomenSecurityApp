@@ -21,6 +21,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Login" />
         <activity
             android:name=".Main2Activity"
             android:label="@string/title_activity_main2"
@@ -28,6 +29,8 @@
         <activity android:name=".User_login_info.Trusted_person" />
         <activity android:name=".User_login_info.Signup" />
         <activity android:name=".User_login_info.Account_setup" />
+        <activity android:name=".action_screen" />
+        <activity android:name=".MapActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

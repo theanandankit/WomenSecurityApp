@@ -224,7 +224,6 @@ public class action_screen extends AppCompatActivity implements LocationListener
 
         Log.d(TAG, "initMap: initialising map");
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map_actionScreen);
-
         mapFragment.getMapAsync(action_screen.this);
     }
 

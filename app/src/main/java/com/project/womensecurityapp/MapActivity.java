@@ -413,8 +413,6 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                             person.add(new Trusted_person_model(t.getName(), t.getContact(), "---", t.getAddress(), t.getRelation()));
 
                         }
-
-
                         trusted_person_adapter myAdapter = new trusted_person_adapter(getApplicationContext(), R.layout.trusted_person_model, person);
                         listView.setAdapter(myAdapter);
                     }
@@ -431,8 +429,6 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
             }
         });
-
-
         dialog.show();
         dialog.setCanceledOnTouchOutside(false);
         dialog.getWindow().setAttributes(lp);
