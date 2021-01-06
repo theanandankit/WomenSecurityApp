@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp">
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:layout_margin="15dp"
+            android:background="@drawable/ic_phone_black_24dp">
+
+        </ImageView>
+
+        <TextView
+            android:id="@+id/person_info_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:text="Medhavi"
+            android:textSize="20sp">
+
+        </TextView>
+
+
+        <TextView
+            android:id="@+id/person_info_contact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/person_info_name"
+            android:layout_margin="3dp"
+            android:text="87XXXXXX03"
+            android:textSize="15sp">
+
+        </TextView>
+
+    </RelativeLayout>
+
+</LinearLayout>

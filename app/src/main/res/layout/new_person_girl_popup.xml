@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/personal_information"
+        android:textSize="15sp">
+
+    </TextView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        app:strokeColor="@color/Black"
+        app:strokeWidth="3dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/person_girl_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:text="@string/my_name"
+                android:textSize="20sp">
+
+            </TextView>
+
+
+            <TextView
+                android:id="@+id/person_girl_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:text="@string/room_no_boys_hostelbekar_college_gwalior"
+                android:textSize="20sp">
+
+            </TextView>
+
+
+            <TextView
+                android:id="@+id/person_girl_contact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:text="90XXXXXXXX"
+                android:textSize="20sp">
+
+            </TextView>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:background="@color/button_red"
+            android:text="call"
+            app:cornerRadius="20dp"
+            app:strokeColor="@color/Black"
+            app:strokeWidth="3dp"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:background="@color/button_red"
+            android:text="Direction"
+            app:cornerRadius="20dp"
+            app:strokeColor="@color/Black"
+            app:strokeWidth="3dp"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/person_girl_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:layout_weight="1"
+        android:background="@color/button_red"
+        android:text="cancel"
+        app:strokeColor="@color/Black"
+        app:strokeWidth="3dp"/>
+
+</LinearLayout>

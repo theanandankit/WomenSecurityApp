@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    app:strokeColor="@color/pink"
+    app:strokeWidth="3dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/pink">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Almost there \n Please Enter Your details"
+                android:fontFamily="@string/alert"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:textSize="20dp">
+
+
+            </TextView>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Name *"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:textSize="15dp"
+            android:textStyle="italic"
+            android:textColor="@color/Alert_red"
+            >
+        </TextView>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:padding="5dp"
+            android:layout_height="40dp"
+            android:layout_margin="20dp"
+            android:inputType="text"
+            android:id="@+id/new_entry_name"
+            android:maxLines="10"
+            android:background="@drawable/rectangle">
+
+        </EditText>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/contact_no"
+            android:layout_marginStart="20dp"
+            android:textSize="15sp"
+            android:textStyle="italic"
+            android:textColor="@color/Alert_red"
+            >
+        </TextView>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:padding="5dp"
+            android:layout_height="40dp"
+            android:layout_margin="20dp"
+            android:inputType="number"
+            android:id="@+id/new_entry_contact"
+            android:maxLines="10"
+            android:background="@drawable/rectangle">
+
+        </EditText>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_margin="10dp"
+                android:id="@+id/new_entry_cancel2"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="cancel"
+                android:background="@color/colorPrimary"
+                app:cornerRadius="30dp" />
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_margin="10dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/new_entry_ok2"
+                android:layout_weight="1"
+                android:text="enter"
+                app:rippleColor="@color/colorAccent"
+                android:background="@color/colorPrimary"
+                app:cornerRadius="30dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

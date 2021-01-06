@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Welcome!"
+                android:fontFamily="sans-serif-smallcaps"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:background="@color/white"
+                />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:strokeColor="@color/Black"
+        app:strokeWidth="3dp"
+        app:cardCornerRadius="30dp"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:fontFamily="monospace"
+                android:layout_gravity="center"
+                android:id="@+id/home_name"
+                android:gravity="center"
+                android:textSize="20dp"
+                android:layout_margin="5dp">
+
+            </TextView>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Contact No."
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:id="@+id/home_contact"
+                android:fontFamily="monospace"
+                android:textSize="15dp"
+                android:layout_margin="5dp">
+
+            </TextView>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Share Location"
+                android:padding="10dp"
+                android:fontFamily="monospace"
+                android:textSize="30sp"
+                app:cornerRadius="25dp"
+                app:backgroundTint="@color/quantum_amber700"
+                android:id="@+id/type1"
+                android:layout_margin="10dp"/>
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="NEEd help"
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                android:fontFamily="monospace"
+                android:textSize="30sp"
+                app:cornerRadius="25dp"
+                app:backgroundTint="@color/quantum_pinkA400"
+                android:id="@+id/help"/>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="enter problem id"
+                android:padding="10dp"
+                android:fontFamily="monospace"
+                android:textSize="30sp"
+                app:cornerRadius="25dp"
+                app:backgroundTint="@color/quantum_indigo600"
+                android:id="@+id/home_enter"
+                android:layout_margin="10dp"/>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="go to recent activity"
+            android:padding="10dp"
+            android:fontFamily="monospace"
+            android:textSize="30sp"
+            app:cornerRadius="25dp"
+            app:backgroundTint="@color/quantum_indigo600"
+            android:id="@+id/home_recent_activity"
+            android:layout_margin="10dp"/>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp">
+
+        <ToggleButton
+            android:id="@+id/shakeToggleButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"/>
+
+        <ToggleButton
+            android:id="@+id/RecordingToggleButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="8dp"/>
+
+    </RelativeLayout>
+
+</LinearLayout>
+

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    app:strokeWidth="3dp"
+    app:strokeColor="@color/pink">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/pink">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enter into the live location window"
+            android:fontFamily="monospace"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:textSize="20dp"
+            android:textColor="@color/quantum_white_100"
+            >
+
+
+        </TextView>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Please Enter the ID *"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:textSize="15dp"
+        android:textStyle="italic"
+        android:textColor="@color/Alert_red"
+        >
+    </TextView>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:padding="5dp"
+        android:layout_height="40dp"
+        android:layout_margin="20dp"
+        android:inputType="number"
+        android:id="@+id/new_entry_text"
+        android:maxLines="10"
+        android:background="@drawable/rectangle">
+
+    </EditText>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_margin="10dp"
+            android:id="@+id/new_entry_cancel"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="cancel"
+            android:background="@color/colorPrimary"
+            app:cornerRadius="30dp" />
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/new_entry_ok"
+            android:layout_weight="1"
+            android:text="Next"
+            app:rippleColor="@color/colorAccent"
+            android:background="@color/colorPrimary"
+            app:cornerRadius="30dp" />
+
+    </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
