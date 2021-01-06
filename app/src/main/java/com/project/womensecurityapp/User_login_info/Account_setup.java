@@ -2,6 +2,7 @@ package com.project.womensecurityapp.User_login_info;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -48,15 +49,6 @@ public class Account_setup extends AppCompatActivity {
 
                 Toast.makeText(getApplicationContext(), "ok", Toast.LENGTH_LONG).show();
 
-
-               /* profile.setName(name.getEditText().getText().toString());
-                profile.setContact_no(contact.getEditText().getText().toString());
-                profile.setHouse_no(house.getEditText().getText().toString());
-                profile.setStreet(street.getEditText().getText().toString());
-                profile.setCity(city.getEditText().getText().toString());
-                profile.setCountry("India");
-*/
-
                 final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
                 databaseReference.child("Personal_info").setValue(profile);
                 FirebaseDatabase.getInstance().getReference().child("City-Records").child(city.getEditText().getText().toString().toUpperCase()).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(contact.getEditText().getText().toString());
@@ -69,7 +61,7 @@ public class Account_setup extends AppCompatActivity {
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                        Log.e("error", databaseError.getMessage());
                     }
                 });
 

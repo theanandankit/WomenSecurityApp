@@ -53,5 +53,4 @@
     <string name="user_id">user id</string>
     <string name="password">password</string>
     <string name="login">Login</string>
-    <string name="default_web_client_id">123</string>
 </resources>
