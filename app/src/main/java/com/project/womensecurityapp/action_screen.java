@@ -123,6 +123,7 @@ public class action_screen extends AppCompatActivity implements LocationListener
     JSONArray jsonArray;
     FloatingActionButton camera, resend;
     private Uri image_uri = null;
+    PlaceResult placeResults;
 
 
     @Override
@@ -132,6 +133,7 @@ public class action_screen extends AppCompatActivity implements LocationListener
 
         camera = findViewById(R.id.float_picture);
         resend = findViewById(R.id.float_resend);
+        placeResults = new PlaceResult();
 
         resend.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -488,6 +490,7 @@ public class action_screen extends AppCompatActivity implements LocationListener
             public void onResponse(Call<PlaceResult> call, Response<PlaceResult> response) {
 
                 if (response.isSuccessful()) {
+                    placeResults = response.body();
                     setMaker(response.body().getResults());
                 }
             }
@@ -506,7 +509,7 @@ public class action_screen extends AppCompatActivity implements LocationListener
 
         for (int a = 0; a < result.size(); a++) {
             MarkerOptions markerOptions = new MarkerOptions();
-            LatLng latLng = new LatLng(result.get(a).getPosition().getLat(), result.get(0).getPosition().getLon());
+            LatLng latLng = new LatLng(result.get(a).getPosition().getLat(), result.get(a).getPosition().getLon());
             markerOptions.position(latLng);
             markerOptions.title(result.get(a).getAddress().getStreetName() + " " + result.get(a).getAddress().getCountrySecondarySubDivision() + " " + result.get(a).getAddress().getMunicipality() + " " + result.get(a).getAddress().getCountrySecondarySubDivision() + " " + result.get(a).getAddress().getPostalCode());
             if (safe_location_FLAG == "police") {
@@ -584,36 +587,11 @@ public class action_screen extends AppCompatActivity implements LocationListener
         TextView rating = dialog.findViewById(R.id.action_rating);
         TextView person = dialog.findViewById(R.id.action_total_no_person);
 
-        JSONObject place = null;
-        try {
-            place = jsonArray.getJSONObject(Integer.parseInt(counter));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        try {
-            if (!place.isNull(NAME)) {
-                name.setText(place.getString(NAME));
-            }
+        name.setText(placeResults.getResults().get(Integer.parseInt(counter)).getPoi().getName());
+        address.setText(placeResults.getResults().get(Integer.parseInt(counter)).getAddress().getStreetName() + " " + placeResults.getResults().get(Integer.parseInt(counter)).getAddress().getCountrySecondarySubDivision() + " " + placeResults.getResults().get(Integer.parseInt(counter)).getAddress().getMunicipality() + " " + placeResults.getResults().get(Integer.parseInt(counter)).getAddress().getCountrySecondarySubDivision() + " " + placeResults.getResults().get(Integer.parseInt(counter)).getAddress().getPostalCode());
+        rating.setText("4");
+        person.setText("1451");
 
-            if (!place.isNull(VICINITY)) {
-
-                address.setText(place.getString(VICINITY));
-            }
-
-            if (!place.isNull("rating")) {
-                Log.e("aa", String.valueOf(place.getDouble("rating")));
-                rating.setText(place.getString("rating"));
-            }
-
-
-            if (!place.isNull("user_ratings_total")) {
-
-                Log.e("as", String.valueOf(place.getDouble("user_ratings_total")));
-                person.setText("(" + place.getString("user_ratings_total") + " person)");
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
         dialog.show();
         dialog.setCanceledOnTouchOutside(false);
         dialog.getWindow().setAttributes(lp);
