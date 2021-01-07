@@ -60,7 +60,7 @@ public class AdapterReport extends RecyclerView.Adapter<AdapterReport.ViewHolder
         return modelReportList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView timeTV;
         TextView placeTV;
@@ -79,5 +79,5 @@ public class AdapterReport extends RecyclerView.Adapter<AdapterReport.ViewHolder
 
         }
     }
-    
+
 }

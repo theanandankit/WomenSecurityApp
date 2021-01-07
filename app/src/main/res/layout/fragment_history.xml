@@ -1,23 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
-    android:padding="8dp">
+    android:orientation="vertical"
+    android:padding="4dp">
 
-    <Spinner
-        android:id="@+id/history_spinner"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginTop="15dp"/>
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="4dp"
+        android:weightSum="10">
+
+        <Spinner
+            android:id="@+id/history_spinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="9.5"
+            android:background="@drawable/custom_spinner_bg"
+            android:padding="3dp" />
+
+        <ImageButton
+            android:id="@+id/history_photo_btn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="25dp"
+            android:background="@drawable/rectangular_bg_gray"
+            android:src="@drawable/ic_image"
+            tools:ignore="ContentDescription" />
+
+        <ImageButton
+            android:id="@+id/history_audio_btn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/rectangular_bg_gray"
+            android:src="@drawable/ic_play"
+            tools:ignore="ContentDescription" />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/history_image_rv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:visibility="gone" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/history_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"/>
+        android:layout_marginTop="5dp" />
 
 </LinearLayout>

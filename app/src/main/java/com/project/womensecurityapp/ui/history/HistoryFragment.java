@@ -1,5 +1,6 @@
 package com.project.womensecurityapp.ui.history;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -7,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
@@ -24,12 +26,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.project.womensecurityapp.Report.AdapterReport;
+import com.project.womensecurityapp.Report.AdapterReportImage;
 import com.project.womensecurityapp.Report.ModelReport;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import com.project.womensecurityapp.R;
+import com.project.womensecurityapp.Report.ReportImageModel;
 
 public class HistoryFragment extends Fragment {
 
@@ -45,6 +49,16 @@ public class HistoryFragment extends Fragment {
     ArrayAdapter<String> adapter;
     ArrayList<String> spinnerDataList;
 
+    private ImageButton btnPhoto;
+    private ImageButton btnAudio;
+    private RecyclerView rvImage;
+
+    private ArrayList<ReportImageModel> imageList = new ArrayList<>();
+
+    private MediaPlayer mediaPlayer;
+
+    private boolean audioPlayed = false;
+
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         historyViewModel = ViewModelProviders.of(this).get(HistoryViewModel.class);
@@ -56,15 +70,31 @@ public class HistoryFragment extends Fragment {
             }
         });
 
+        mediaPlayer = MediaPlayer.create(getContext(), R.raw.my_recording);
+
+        btnAudio = root.findViewById(R.id.history_audio_btn);
+        btnPhoto = root.findViewById(R.id.history_photo_btn);
         spinner = root.findViewById(R.id.history_spinner);
         recyclerView = root.findViewById(R.id.history_recyclerView);
+        rvImage = root.findViewById(R.id.history_image_rv);
+
+        imageList.add(new ReportImageModel(R.drawable.img_20210107_212557));
+        imageList.add(new ReportImageModel(R.drawable.img_20210107_212601));
+        imageList.add(new ReportImageModel(R.drawable.img_20210107_212655));
+
+        AdapterReportImage adapterReportImage = new AdapterReportImage(imageList);
+
+        rvImage.setLayoutManager(
+                new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, true));
+        rvImage.setAdapter(adapterReportImage);
+
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         linearLayoutManager.setStackFromEnd(true);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(linearLayoutManager);
 
         spinnerDataList = new ArrayList<>();
-        adapter = new ArrayAdapter<String>(getActivity(),
+        adapter = new ArrayAdapter<>(getActivity(),
                 android.R.layout.simple_spinner_dropdown_item,
                 spinnerDataList);
 
@@ -90,6 +120,21 @@ public class HistoryFragment extends Fragment {
             public void onNothingSelected(AdapterView<?> adapterView) {
 
             }
+        });
+
+        btnPhoto.setOnClickListener(view -> {
+            if (rvImage.getVisibility() == View.VISIBLE)
+                rvImage.setVisibility(View.GONE);
+            else
+                rvImage.setVisibility(View.VISIBLE);
+        });
+
+        btnAudio.setOnClickListener(view -> {
+            playAudio();
+        });
+
+        mediaPlayer.setOnCompletionListener(mediaPlayer -> {
+            releaseMediaPlayer();
         });
 
         return root;
@@ -144,6 +189,33 @@ public class HistoryFragment extends Fragment {
 
             }
         });
+    }
+
+    private void playAudio() {
+        if (audioPlayed) {
+            //pause
+            audioPlayed = false;
+            mediaPlayer.pause();
+            btnAudio.setImageResource(R.drawable.ic_play);
+        } else {
+            // play
+            audioPlayed = true;
+            mediaPlayer.start();
+            btnAudio.setImageResource(R.drawable.ic_pause);
+        }
+    }
+
+    private void releaseMediaPlayer() {
+        if (mediaPlayer != null) {
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        releaseMediaPlayer();
     }
 
 }
