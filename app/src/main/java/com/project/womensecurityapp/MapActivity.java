@@ -279,8 +279,6 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                 public boolean onMarkerClick(Marker marker) {
 
                     girl_info_popup();
-
-
                     return false;
                 }
             });

@@ -5,6 +5,7 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -35,11 +36,20 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.project.womensecurityapp.Retrofit.ApiClient;
 import com.project.womensecurityapp.User_login_info.Account_setup;
+import com.project.womensecurityapp.model.RetrofitModel.PlaceResult;
+import com.project.womensecurityapp.model.RetrofitModel.safeLocation;
 import com.project.womensecurityapp.model.User_residential_details;
 import com.project.womensecurityapp.model.location_model;
 import com.project.womensecurityapp.model.person_details;
 import com.project.womensecurityapp.model.person_info;
+
+import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 import static com.project.womensecurityapp.MainActivity.editor;
 import static com.project.womensecurityapp.MainActivity.preferences;
@@ -69,6 +79,7 @@ public class Main2Activity extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
 
         getAppPermissions();
+        data();
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -444,6 +455,24 @@ public class Main2Activity extends AppCompatActivity {
 
         ActivityCompat.requestPermissions(this, appPermissions, PERMISSION_REQUEST_CODE);
 
+    }
+
+    public void data() {
+//        ApiClient apiClient = new ApiClient();
+//        Call<PlaceResult> call = apiClient.getApiinterface().getData("police","ZSskAK5jn2K7T6stJoJ1fyDXGDChSZuE","24.791","85.0002");
+//        call.enqueue(new Callback<PlaceResult>() {
+//            @Override
+//            public void onResponse(Call<PlaceResult> call, Response<PlaceResult> response) {
+//                Log.e("as",response.message());
+//                Log.e("log",response.body().getResults().get(0).getAddress().getCountrySecondarySubDivision());
+//                Log.e("lat", String.valueOf(response.body().getResults().get(0).getPosition().getLat()));
+//            }
+//
+//            @Override
+//            public void onFailure(Call<PlaceResult> call, Throwable t) {
+//                Log.e("error",t.getMessage());
+//            }
+//        });
     }
 
 }

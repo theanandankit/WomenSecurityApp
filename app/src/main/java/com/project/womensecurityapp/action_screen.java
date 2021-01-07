@@ -37,7 +37,6 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.android.volley.Request;
-import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.github.clans.fab.FloatingActionButton;
@@ -62,6 +61,9 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.project.womensecurityapp.Location.BackgroundLocationService_Girls;
 import com.project.womensecurityapp.Notification.notification_generator;
+import com.project.womensecurityapp.Retrofit.ApiClient;
+import com.project.womensecurityapp.model.RetrofitModel.PlaceResult;
+import com.project.womensecurityapp.model.RetrofitModel.safeLocation;
 import com.project.womensecurityapp.model.location_model;
 import com.project.womensecurityapp.model.person_details;
 import com.project.womensecurityapp.services.AppController;
@@ -71,8 +73,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 import static com.project.womensecurityapp.MainActivity.editor;
 import static com.project.womensecurityapp.MainActivity.preferences;
@@ -176,24 +183,24 @@ public class action_screen extends AppCompatActivity implements LocationListener
         });
 
         railwayStationButton.setOnClickListener(view -> {
-            String type = "train_station";
+            String type = "railway";
             safe_location_FLAG = type;
             getNearByPlaces(type);
-            Toast.makeText(getApplicationContext(), "police", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Railway Station", Toast.LENGTH_LONG).show();
         });
 
         airportButton.setOnClickListener(view -> {
             String type = "airport";
             safe_location_FLAG = type;
             getNearByPlaces(type);
-            Toast.makeText(getApplicationContext(), "police", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Airport", Toast.LENGTH_LONG).show();
         });
 
         mapButton.setOnClickListener(view -> {
-            String type = "shopping_mall";
+            String type = "mall";
             safe_location_FLAG = type;
             getNearByPlaces(type);
-            Toast.makeText(getApplicationContext(), "police", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Shopping mall", Toast.LENGTH_LONG).show();
         });
 
     }
@@ -473,106 +480,48 @@ public class action_screen extends AppCompatActivity implements LocationListener
 
     private void getNearByPlaces(String type) {
 
-        double latitude = myLocation.getLatitude();
-        double longitude = myLocation.getLongitude();
+        ApiClient apiClient = new ApiClient();
 
-        StringBuilder googlePlacesUrl =
-                new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");
-        googlePlacesUrl.append("location=").append(latitude).append(",").append(longitude);
-        googlePlacesUrl.append("&rankby=").append("distance");
-        googlePlacesUrl.append("&types=").append(safe_location_FLAG);
-        googlePlacesUrl.append("&sensor=true");
-        googlePlacesUrl.append("&key=AIzaSyC1uMbDWYK6aaFPdiT9Fp1KsHwMPNJ96d4");
+        Call<PlaceResult> call = apiClient.getApiinterface().getData(type, "ZSskAK5jn2K7T6stJoJ1fyDXGDChSZuE", String.valueOf(myLocation.getLatitude()), String.valueOf(myLocation.getLongitude()));
+        call.enqueue(new Callback<PlaceResult>() {
+            @Override
+            public void onResponse(Call<PlaceResult> call, Response<PlaceResult> response) {
 
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, googlePlacesUrl.toString(), null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        Log.i(TAG, "onResponse: Result= " + response.toString());
-                        parseLocationResult(response);
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Log.e(TAG, "onErrorResponse: Error= " + error);
-                        Log.e(TAG, "onErrorResponse: Error= " + error.getMessage());
-                    }
-                });
-
-
-        try {
-
-            AppController.getInstance().addToRequestQueue(request);
-        } catch (Exception e) {
-
-            Toast.makeText(getApplicationContext(), "Please wait somthing went wrong", Toast.LENGTH_LONG).show();
-            e.printStackTrace();
-        }
-
-    }
-
-    private void parseLocationResult(JSONObject result) {
-
-        String id, place_id, placeName = null, reference, icon, vicinity = null;
-        double latitude, longitude;
-
-        try {
-            jsonArray = result.getJSONArray("results");
-
-            if (result.getString(STATUS).equalsIgnoreCase(OK)) {
-
-                mMap.clear();
-                addAllPerson();
-
-                for (int i = 0; i < jsonArray.length(); i++) {
-
-                    JSONObject place = jsonArray.getJSONObject(i);
-
-                    if (!place.isNull(NAME)) {
-                        placeName = place.getString(NAME);
-                    }
-                    if (!place.isNull(VICINITY)) {
-                        vicinity = place.getString(VICINITY);
-                    }
-                    latitude = place.getJSONObject(GEOMETRY).getJSONObject(LOCATION)
-
-                            .getDouble(LATITUDE);
-                    longitude = place.getJSONObject(GEOMETRY).getJSONObject(LOCATION)
-
-                            .getDouble(LONGITUDE);
-
-                    MarkerOptions markerOptions = new MarkerOptions();
-                    LatLng latLng = new LatLng(latitude, longitude);
-                    markerOptions.position(latLng);
-                    markerOptions.title(placeName + " : " + vicinity);
-
-                    if (safe_location_FLAG == "police") {
-                        Marker marker = mMap.addMarker(markerOptions.icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_security)));
-                        marker.setTag(String.valueOf(i));
-                    } else if (safe_location_FLAG == "train_station") {
-                        Marker marker = mMap.addMarker(markerOptions.icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_train)));
-                        marker.setTag(String.valueOf(i));
-                    } else if (safe_location_FLAG == "airport") {
-                        Marker marker = mMap.addMarker(markerOptions.icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_airport)));
-                        marker.setTag(String.valueOf(i));
-                    } else if (safe_location_FLAG == "shopping_mall") {
-                        Marker marker = mMap.addMarker(markerOptions.icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_store_mall)));
-                        marker.setTag(String.valueOf(i));
-                    }
-
-
+                if (response.isSuccessful()) {
+                    setMaker(response.body().getResults());
                 }
-
-                Toast.makeText(getBaseContext(), jsonArray.length() + " found!", Toast.LENGTH_SHORT).show();
-            } else if (result.getString(STATUS).equalsIgnoreCase("ZERO_RESULTS")) {
-                Toast.makeText(getBaseContext(), "Nothing found!", Toast.LENGTH_SHORT).show();
             }
 
-        } catch (JSONException e) {
+            @Override
+            public void onFailure(Call<PlaceResult> call, Throwable t) {
 
-            e.printStackTrace();
-            Log.e(TAG, "parseLocationResult: Error=" + e.getMessage());
+            }
+        });
+    }
+
+    private void setMaker(ArrayList<safeLocation> result) {
+
+        mMap.clear();
+        addAllPerson();
+
+        for (int a = 0; a < result.size(); a++) {
+            MarkerOptions markerOptions = new MarkerOptions();
+            LatLng latLng = new LatLng(result.get(a).getPosition().getLat(), result.get(0).getPosition().getLon());
+            markerOptions.position(latLng);
+            markerOptions.title(result.get(a).getAddress().getStreetName() + " " + result.get(a).getAddress().getCountrySecondarySubDivision() + " " + result.get(a).getAddress().getMunicipality() + " " + result.get(a).getAddress().getCountrySecondarySubDivision() + " " + result.get(a).getAddress().getPostalCode());
+            if (safe_location_FLAG == "police") {
+                Marker marker = mMap.addMarker(markerOptions.icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_security)));
+                marker.setTag(String.valueOf(a));
+            } else if (safe_location_FLAG == "railway") {
+                Marker marker = mMap.addMarker(markerOptions.icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_train)));
+                marker.setTag(String.valueOf(a));
+            } else if (safe_location_FLAG == "airport") {
+                Marker marker = mMap.addMarker(markerOptions.icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_airport)));
+                marker.setTag(String.valueOf(a));
+            } else if (safe_location_FLAG == "mall") {
+                Marker marker = mMap.addMarker(markerOptions.icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_store_mall)));
+                marker.setTag(String.valueOf(a));
+            }
         }
     }
 

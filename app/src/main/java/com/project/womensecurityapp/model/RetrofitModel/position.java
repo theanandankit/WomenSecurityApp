@@ -2,23 +2,23 @@ package com.project.womensecurityapp.model.RetrofitModel;
 
 public class position {
 
-    long lat;
+    Double lat;
 
-    long lon;
+    Double  lon;
 
-    public long getLat() {
+    public Double getLat() {
         return lat;
     }
 
-    public void setLat(long lat) {
+    public void setLat(Double lat) {
         this.lat = lat;
     }
 
-    public long getLon() {
+    public Double getLon() {
         return lon;
     }
 
-    public void setLon(long lon) {
+    public void setLon(Double lon) {
         this.lon = lon;
     }
 }
