@@ -506,7 +506,7 @@ public class action_screen extends AppCompatActivity implements LocationListener
 
         for (int a = 0; a < result.size(); a++) {
             MarkerOptions markerOptions = new MarkerOptions();
-            LatLng latLng = new LatLng(result.get(a).getPosition().getLat(), result.get(0).getPosition().getLon());
+            LatLng latLng = new LatLng(result.get(a).getPosition().getLat(), result.get(a).getPosition().getLon());
             markerOptions.position(latLng);
             markerOptions.title(result.get(a).getAddress().getStreetName() + " " + result.get(a).getAddress().getCountrySecondarySubDivision() + " " + result.get(a).getAddress().getMunicipality() + " " + result.get(a).getAddress().getCountrySecondarySubDivision() + " " + result.get(a).getAddress().getPostalCode());
             if (safe_location_FLAG == "police") {
