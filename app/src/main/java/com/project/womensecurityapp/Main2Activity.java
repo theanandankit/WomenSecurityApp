@@ -169,8 +169,6 @@ public class Main2Activity extends AppCompatActivity {
                                 startActivity(i);
                                 Toast.makeText(getApplicationContext(), "Not set", Toast.LENGTH_SHORT).show();
                             }
-
-
                         }
 
                         @Override

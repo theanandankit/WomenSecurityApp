@@ -6,6 +6,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
@@ -16,9 +17,7 @@ import com.project.womensecurityapp.Shake.shake_service;
 
 public class foreground_service extends Service {
 
-    public static Handler background_upadte_handler = new Handler();
     public static final String CHANNEL_ID = "exampleServiceChannel";
-    Runnable runnable;
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
@@ -37,10 +36,7 @@ public class foreground_service extends Service {
                 .build();
 
         startService(new Intent(getApplicationContext(), shake_service.class));
-
-
         startForeground(1, notification);
-
 
         return START_NOT_STICKY;
     }
@@ -49,11 +45,8 @@ public class foreground_service extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-
         stopService(new Intent(getApplicationContext(), shake_service.class));
-
     }
-
 
     @Override
     public IBinder onBind(Intent intent) {

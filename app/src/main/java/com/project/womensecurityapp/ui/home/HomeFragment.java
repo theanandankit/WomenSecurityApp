@@ -61,9 +61,6 @@ public class HomeFragment extends Fragment {
     private static final int SEND_SMS_PERMISSION_REQUEST = 0;
 
     private DatabaseReference databaseReference_sms;
-    /*public static SharedPreferences preferences;
-    public static SharedPreferences.Editor editor;*/
-
     private HomeViewModel homeViewModel;
     private Button shareLocation, help, start, recent;
 
