@@ -35,9 +35,10 @@ public class notification extends FirebaseMessagingService {
 
 
         // check users is verified or not
-        if (!preferences.getString("verified", "no").equals("no")) {
+//        if (!preferences.getString("verified", "no").equals("no")) {
+//            System.out.println("jk");
 
-            NotificationCompat.Builder builder = new NotificationCompat.Builder(this, preferences.getString("current_user_city", "GWALIOR"))
+            NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "GWALIOR")
                     .setContentTitle(remoteMessage.getData().get("title"))
                     .setSmallIcon(R.drawable.ic_security)
                     .setContentText(remoteMessage.getData().get("message"))
@@ -46,6 +47,6 @@ public class notification extends FirebaseMessagingService {
             NotificationManagerCompat managerCompat = NotificationManagerCompat.from(this);
             managerCompat.notify(999, builder.build());
 
-        }
+     //   }
     }
 }

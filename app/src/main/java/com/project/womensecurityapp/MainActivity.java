@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            NotificationChannel channel2 = new NotificationChannel(preferences.getString("current_user_city","GWALIOR"), preferences.getString("current_user_city","GWALIOR"), NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationChannel channel2 = new NotificationChannel("GWALIOR", "GWALIOR", NotificationManager.IMPORTANCE_DEFAULT);
 
             NotificationManager manager = getSystemService(NotificationManager.class);
             manager.createNotificationChannel(channel2);

@@ -23,7 +23,7 @@ import java.util.Map;
 public class notification_generator {
 
     private String FCM_API = "https://fcm.googleapis.com/fcm/send";
-    private String serverKey = "key=" + "AIzaSyDo7twRdgfEnI2OVNitEEhlHyykzA22PE0";
+    private String serverKey = "key=" + "AAAAsGIpMBM:APA91bH3aufuZihQY3fNv_YPH5TbGE8iMzGHYsAflFm75pVTko7WqRIRxmefuTfdNt9ID6MwDEE9TvtNej-dPaaewKXhDYNTwrtO_lr9fMZGbSFh-xtwYzjLwKL2QpgUxMYbP5CsjlYE";
     private String contentType = "application/json";
 
 

@@ -36,9 +36,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import com.android.volley.Request;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.github.clans.fab.FloatingActionButton;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -66,12 +63,9 @@ import com.project.womensecurityapp.model.RetrofitModel.PlaceResult;
 import com.project.womensecurityapp.model.RetrofitModel.safeLocation;
 import com.project.womensecurityapp.model.location_model;
 import com.project.womensecurityapp.model.person_details;
-import com.project.womensecurityapp.services.AppController;
 import com.project.womensecurityapp.services.foreground_service;
 
 import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;

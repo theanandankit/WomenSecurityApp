@@ -5,7 +5,6 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -36,20 +35,12 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.project.womensecurityapp.Retrofit.ApiClient;
+import com.project.womensecurityapp.Notification.notification_generator;
 import com.project.womensecurityapp.User_login_info.Account_setup;
-import com.project.womensecurityapp.model.RetrofitModel.PlaceResult;
-import com.project.womensecurityapp.model.RetrofitModel.safeLocation;
 import com.project.womensecurityapp.model.User_residential_details;
 import com.project.womensecurityapp.model.location_model;
 import com.project.womensecurityapp.model.person_details;
 import com.project.womensecurityapp.model.person_info;
-
-import java.util.ArrayList;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 import static com.project.womensecurityapp.MainActivity.editor;
 import static com.project.womensecurityapp.MainActivity.preferences;
@@ -77,6 +68,9 @@ public class Main2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
+//        notification_generator generator = new notification_generator();
+//        generator.send_notification(preferences.getString("current_user_name", "A lady") + " want your Help!", "Problem Id (" + preferences.getString("problem-id", "NA") + ")", Main2Activity.this);
 
         getAppPermissions();
         data();
