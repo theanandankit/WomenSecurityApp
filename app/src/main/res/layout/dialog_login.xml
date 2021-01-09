@@ -3,21 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    >
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:src="@mipmap/ic_launcher_round" />
+        android:src="@drawable/security" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="You need to login/signup"
+        android:text="You need to Login/Signup"
         android:textAlignment="center"
-        android:textSize="25sp" />
+        android:textSize="25sp"
+        android:textColor="@color/black"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -33,11 +35,13 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:fontFamily="monospace"
             android:text="Login"
-            android:textStyle="bold"
-            app:backgroundTint="@color/pink"
-            app:cornerRadius="8dp" />
+            app:backgroundTint="@color/lightGreen"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            app:elevation="10dp"
+            app:cornerRadius="20dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/signup"
@@ -45,11 +49,13 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:fontFamily="monospace"
             android:text="Signup"
-            android:textStyle="bold"
-            app:backgroundTint="@color/pink"
-            app:cornerRadius="8dp" />
+            app:backgroundTint="@color/lightGreen"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            app:elevation="10dp"
+            app:cornerRadius="20dp" />
     </LinearLayout>
 
     <com.google.android.material.button.MaterialButton
@@ -60,11 +66,13 @@
         android:layout_marginRight="20dp"
         android:layout_marginBottom="10dp"
         android:layout_weight="1"
-        android:fontFamily="monospace"
         android:text="Enter the problem id"
-        android:textStyle="bold"
-        app:backgroundTint="@color/pink"
-        app:cornerRadius="8dp" />
+        app:backgroundTint="@color/colorPrimary"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textAllCaps="false"
+        app:elevation="10dp"
+        app:cornerRadius="20dp" />
 
 
 </LinearLayout>

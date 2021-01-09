@@ -50,7 +50,7 @@
     <string name="person_successfully_added">Person Successfully Added</string>
     <string name="add_more">Add More</string>
     <string name="proceed">Proceed</string>
-    <string name="user_id">user id</string>
-    <string name="password">password</string>
+    <string name="user_id">Email</string>
+    <string name="password">Password</string>
     <string name="login">Login</string>
 </resources>

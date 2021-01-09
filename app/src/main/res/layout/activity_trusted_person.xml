@@ -1,18 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".User_login_info.Trusted_person">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingHorizontal="10dp">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:src="@drawable/trusted"
+            android:id="@+id/logo"
+            android:background="@color/white"
+
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add the details of a trusted person"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20sp"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/trusted_name"
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="3dp"
+        app:boxBackgroundColor="@color/lightGreen"
+        android:layout_marginVertical="7dp"
+        app:boxCornerRadiusTopStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
+        app:boxStrokeColor="@color/colorPrimary"
         android:hint="@string/name">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -26,7 +51,11 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="3dp"
+        app:boxBackgroundColor="@color/lightGreen"
+        android:layout_marginVertical="7dp"
+        app:boxCornerRadiusTopStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
+        app:boxStrokeColor="@color/colorPrimary"
         android:hint="@string/contact">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -41,7 +70,11 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="3dp"
+        app:boxBackgroundColor="@color/lightGreen"
+        android:layout_marginVertical="7dp"
+        app:boxCornerRadiusTopStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
+        app:boxStrokeColor="@color/colorPrimary"
         android:hint="@string/email_optional">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -56,7 +89,11 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="3dp"
+        app:boxBackgroundColor="@color/lightGreen"
+        android:layout_marginVertical="7dp"
+        app:boxCornerRadiusTopStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
+        app:boxStrokeColor="@color/colorPrimary"
         android:hint="@string/address_optional">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -71,7 +108,11 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="3dp"
+        app:boxBackgroundColor="@color/lightGreen"
+        android:layout_marginVertical="7dp"
+        app:boxCornerRadiusTopStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
+        app:boxStrokeColor="@color/colorPrimary"
         android:hint="@string/relation_optional">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -86,7 +127,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
         android:text="@string/add_person"
-        app:backgroundTint="@color/pink"
-        app:cornerRadius="10dp" />
+        app:backgroundTint="@color/colorPrimary"
+        app:cornerRadius="20dp" />
+    </LinearLayout>
 
-</LinearLayout>
+</ScrollView>
