@@ -29,7 +29,8 @@
             android:layout_marginStart="25dp"
             android:background="@drawable/rectangular_bg_gray"
             android:src="@drawable/ic_image"
-            tools:ignore="ContentDescription" />
+            tools:ignore="ContentDescription"
+            />
 
         <ImageButton
             android:id="@+id/history_audio_btn"

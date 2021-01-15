@@ -6,7 +6,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/button_red">
+        android:background="@color/colorAccent">
 
         <TextView
             android:layout_width="match_parent"

@@ -245,18 +245,52 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp">
 
-        <ToggleButton
-            android:id="@+id/shakeToggleButton"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp" />
+            android:orientation="vertical"
+            android:layout_marginStart="8dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Shake Service Status"
+                android:layout_marginBottom="3dp"
+                android:textSize="12dp"/>
+            <ToggleButton
+                android:id="@+id/shakeToggleButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:background="@color/colorAccent"
+                android:textColor="@color/white"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginEnd="8dp"
+            android:layout_alignParentEnd="true"
+            android:gravity="center"
+            >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Audio Recording Status"
+            android:layout_marginBottom="3dp"
+            android:textSize="12dp"/>
 
         <ToggleButton
             android:id="@+id/RecordingToggleButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="8dp" />
+            android:layout_marginEnd="8dp"
+            android:background="@color/colorAccent"
+            android:textColor="@color/white"
+            />
+        </LinearLayout>
+
 
     </RelativeLayout>
     </LinearLayout>

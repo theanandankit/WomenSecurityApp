@@ -27,11 +27,10 @@
             android:layout_gravity="center"
             android:layout_margin="8dp"
             android:layout_weight="1"
-            android:fontFamily="sans-serif-smallcaps"
             android:text="@string/add_more"
             android:textAllCaps="true"
-            android:textStyle="bold"
-            app:backgroundTint="@color/pink" />
+            android:textColor="@color/black"
+            app:backgroundTint="@color/colorAccent" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/proceed"
@@ -40,10 +39,9 @@
             android:layout_gravity="center"
             android:layout_margin="8dp"
             android:layout_weight="1"
-            android:fontFamily="sans-serif-smallcaps"
             android:text="@string/proceed"
-            android:textStyle="bold"
-            app:backgroundTint="@color/pink" />
+            android:textColor="@color/black"
+            app:backgroundTint="@color/colorAccent"  />
 
     </LinearLayout>
 

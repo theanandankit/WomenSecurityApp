@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     app:strokeWidth="3dp"
-    app:strokeColor="@color/pink">
+    app:strokeColor="@color/colorAccent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,7 +15,7 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/pink">
+        android:background="@color/colorAccent">
 
         <TextView
             android:layout_width="wrap_content"
@@ -26,7 +26,7 @@
             android:layout_gravity="center"
             android:layout_margin="10dp"
             android:textSize="20dp"
-            android:textColor="@color/quantum_white_100"
+            android:textColor="@color/black"
             >
 
 
